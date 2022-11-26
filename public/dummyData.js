@@ -1,7 +1,10 @@
+import catalogData from './catalog.js';
+
 const usersStorage = JSON.parse(localStorage.getItem('users'));
 const catalogStorage = JSON.parse(localStorage.getItem('catalog'));
 
 if (!usersStorage) {
+    console.log('No user data found. Creating dummy data...');
     const users = [
         {
             id: 1,
@@ -33,10 +36,19 @@ if (!usersStorage) {
 }
 
 if (!catalogStorage) {
-    localStorage.setItem('catalog', '[]');
-    fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(catalog =>
-            localStorage.setItem('catalog', JSON.stringify(catalog))
-        );
+    console.log('No catalog data found. Creating dummy data...');
+    const filteredCatalog = catalogData.map(elem => {
+        return {
+            id: elem.eventId,
+            title: elem.event,
+            day: elem.day,
+            month: elem.month,
+            numberDay: elem.numberDay,
+            year: elem.year,
+            location: elem.location,
+            image: elem.imageHome,
+        };
+    });
+
+    localStorage.setItem('catalog', JSON.stringify(filteredCatalog));
 }
