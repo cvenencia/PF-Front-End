@@ -4,6 +4,7 @@ import Event from './routes/Event';
 import NavBar from './components/common/NavBar';
 import React, { useState, useEffect } from 'react'
 import Footer from './components/common/Footer';
+import AddEvent from './routes/AddEvent';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/event" element={<Event />} />
+          <Route path="/addevent" element={<AddEvent />} />
         </Routes>
         <Footer />
       </Router>
