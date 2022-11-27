@@ -16,7 +16,10 @@ function updateCatalog(newCatalog) {
 }
 
 export function getCatalog(page) {
-    return catalog.slice(page, page + MAX_PER_PAGE);
+    return catalog.slice(
+        page * MAX_PER_PAGE,
+        page * MAX_PER_PAGE + MAX_PER_PAGE
+    );
 }
 
 export function getEvent(id) {
