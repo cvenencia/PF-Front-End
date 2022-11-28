@@ -5,6 +5,8 @@ import NavBar from './components/common/NavBar';
 import React, { useState, useEffect } from 'react'
 import Footer from './components/common/Footer';
 import AddEvent from './routes/AddEvent';
+import LoginP from './routes/LoginP';
+import Register from './routes/Register';
 
 function App() {
 
@@ -28,6 +30,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/event" element={<Event />} />
           <Route path="/addevent" element={<AddEvent />} />
+          <Route path="/login" element={< LoginP/>} />
+          <Route path="/register" element={<Register />} />
+
         </Routes>
         <Footer />
       </Router>

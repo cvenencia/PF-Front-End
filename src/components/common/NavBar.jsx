@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 function NavBar({ onTop }) {
     // Fixed on top
     return (
@@ -10,9 +11,9 @@ function NavBar({ onTop }) {
                 <img className='w-[71px] h-[54px]' src="Logo.png" alt="" />
             </Link>
             {
-                (false) ? (
+                (true) ? (
                     <div className='px-5'>
-                        <Link className='bg-[#06D6A0] flex justify-center items-center w-[130px] h-[35px] rounded-lg green_shadow hover:bg-[#00C592] active:bg-[#00AF82]'>
+                        <Link className='bg-[#06D6A0] flex justify-center items-center w-[130px] h-[35px] rounded-lg green_shadow hover:bg-[#00C592] active:bg-[#00AF82]' to={'/login'}>
                             <p className='text-white font-semibold'>
                                 Iniciar sesión
                             </p>
