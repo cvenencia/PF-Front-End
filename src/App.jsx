@@ -25,7 +25,7 @@ function App() {
   return (
     <UserProvider>
       <EventProvider>
-        <div className='bg-[#1B1C1E] h-screen font-DM_Sans overflow-hidden flex flex-col'>
+        <div className='bg-[#1B1C1E] min-h-screen font-DM_Sans overflow-hidden flex flex-col overflow-y-scroll pr-10 scrollbar-thin scrollbar-thumb-[#424242] scrollbar-track-[#C0C0C0] scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
           <Router>
             <NavBar onTop={onTop} />
             <Routes>

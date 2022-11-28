@@ -158,7 +158,7 @@ function AddEvent() {
             <div className='bg-[#2C2C2D] w-[1000px] h-[600px] flex rounded-2xl py-5 px-5'>
                 <div className='flex flex-col items-center w-fit pr-5 pl-5'>
                     <h1 className='text-white text-2xl font-bold pr-16'>Eventos</h1>
-                    <ul className='mt-5 overflow-y-auto pr-10 scrollbar-thin scrollbar-thumb-[#424242] scrollbar-track-[#C0C0C0]
+                    <ul className='mt-5 overflow-y-scroll pr-10 scrollbar-thin scrollbar-thumb-[#424242] scrollbar-track-[#C0C0C0]
                     scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
                         {
                             catalog.map((item, index) => {
