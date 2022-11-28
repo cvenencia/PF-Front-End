@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import ListEventItem from '../components/addevent/ListEventItem'
 import InputPurple from '../components/common/InputPurple'
@@ -152,6 +152,10 @@ function AddEvent() {
             setImage('')
         }
     }, [selected, editing, catalog])
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     return (
         <div className='h-screen flex justify-center items-center '>

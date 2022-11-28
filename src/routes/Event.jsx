@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useLayoutEffect, useState, useContext } from 'react'
 import { EventContext } from '../contexts/EventContext'
 
 function Event() {
@@ -6,9 +6,13 @@ function Event() {
     const { event } = useContext(EventContext)
     const [quantity, setQuantity] = useState(1)
 
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
-        <div className='my-36 flex justify-center gap-10 rounded-2xl px-10 py-20 '>
-            <div className='rounded-2xl overflow-hidden'>
+        <div className=' flex justify-center gap-10 rounded-2xl px-10 py-20 '>
+            <div className='rounded-2xl'>
                 <img src={event.image} alt="" className='w-[700px]' />
             </div>
             <div>
