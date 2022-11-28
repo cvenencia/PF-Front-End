@@ -23,11 +23,11 @@
   background: linear-gradient(180deg, #0023b0 0%, #060a27 54.5%, #060606 100%);
 }
 
-input[type="date"]::-webkit-inner-spin-button,
+/* input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
-}
+} */
 
 .white_shadow {
   filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.1));

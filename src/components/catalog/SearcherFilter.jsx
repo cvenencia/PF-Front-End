@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SearchContext } from '../../contexts/SearchContext'
 
 function SearcherFilter() {
+
+    const { datePrev, dateNext, setDatePrev, setDateNext } = useContext(SearchContext)
+
     return (
         <div className='w-fit h-fit bg-[#303030] rounded-lg flex flex-col items-center px-5 py-3'>
             <h1 className='font-bold text-2xl text-white opacity-70 mb-3'>
@@ -12,9 +16,17 @@ function SearcherFilter() {
                         Fecha
                     </h2>
                     <div className='flex'>
-                        <input type="date" className='rounded-md bg-[#464646] text-white text-center' />
+                        <input type="date" className='rounded-md bg-[#464646] text-white text-center' value={datePrev} onChange={
+                            (e) => {
+                                setDatePrev(e.target.value)
+                            }
+                        } />
                         <p className='text-3xl text-white px-2'>-</p>
-                        <input className='rounded-md bg-[#464646] text-white text-center' type="date" />
+                        <input className='rounded-md bg-[#464646] text-white text-center' type="date" value={dateNext} onChange={
+                            (e) => {
+                                setDateNext(e.target.value)
+                            }
+                        } />
                     </div>
                 </li>
                 {/* <li>

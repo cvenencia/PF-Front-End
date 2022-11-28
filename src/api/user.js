@@ -3,6 +3,10 @@ import { v4 as uuid } from 'uuid';
 
 const users = getLocalStorage('users');
 
+if (!users)
+    setLocalStorage('users', []);
+
+
 export function login(username, password) {
     return users.find(
         user => user.username === username && user.password === password
@@ -13,7 +17,7 @@ export function register(username, password, type) {
     if (!username || !password || !type)
         return { ok: false, message: 'Insufficient data' };
 
-    if (userExists(username))
+    if (users.length > 0 && userExists(username))
         return { ok: false, message: 'User already exists' };
 
     const newUser = {

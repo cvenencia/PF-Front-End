@@ -5,6 +5,7 @@ import NavBar from './components/common/NavBar';
 import React, { useState, useEffect } from 'react'
 import Footer from './components/common/Footer';
 import AddEvent from './routes/AddEvent';
+import { UserProvider } from './contexts/UserContext';
 
 function App() {
 
@@ -21,17 +22,19 @@ function App() {
   });
 
   return (
-    <div className='bg-[#1B1C1E] min-h-screen font-DM_Sans overflow-hidden'>
-      <Router>
-        <NavBar onTop={onTop} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/addevent" element={<AddEvent />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <UserProvider>
+      <div className='bg-[#1B1C1E] h-screen font-DM_Sans overflow-hidden flex flex-col'>
+        <Router>
+          <NavBar onTop={onTop} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/event" element={<Event />} />
+            <Route path="/addevent" element={<AddEvent />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </div>
+    </UserProvider>
   );
 }
 
