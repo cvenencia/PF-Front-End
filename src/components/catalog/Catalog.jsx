@@ -64,7 +64,7 @@ function Catalog() {
         <div className='flex flex-wrap gap-10 mb-8 w-full'>
             {(catalogFiltered.length > 0) ? (
                 catalogFiltered.map((item, index) => (
-                    <CatalogCard key={index} image={item.image} month={item.month} day={item.numberDay} title={item.title} ubication={item.location} />
+                    <CatalogCard key={index} image={item.image} month={item.month} day={item.numberDay} title={item.title} ubication={item.location} item={item} />
                 ))
             ) : (
                 <div className='w-full text-center'>

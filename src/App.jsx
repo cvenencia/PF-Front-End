@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react'
 import Footer from './components/common/Footer';
 import AddEvent from './routes/AddEvent';
 import { UserProvider } from './contexts/UserContext';
+import { EventProvider } from './contexts/EventContext';
 
 function App() {
 
@@ -23,17 +24,19 @@ function App() {
 
   return (
     <UserProvider>
-      <div className='bg-[#1B1C1E] h-screen font-DM_Sans overflow-hidden flex flex-col'>
-        <Router>
-          <NavBar onTop={onTop} />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/event" element={<Event />} />
-            <Route path="/addevent" element={<AddEvent />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </div>
+      <EventProvider>
+        <div className='bg-[#1B1C1E] h-screen font-DM_Sans overflow-hidden flex flex-col'>
+          <Router>
+            <NavBar onTop={onTop} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/event" element={<Event />} />
+              <Route path="/addevent" element={<AddEvent />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </div>
+      </EventProvider>
     </UserProvider>
   );
 }
