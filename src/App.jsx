@@ -5,6 +5,10 @@ import NavBar from './components/common/NavBar';
 import React, { useState, useEffect } from 'react'
 import Footer from './components/common/Footer';
 import AddEvent from './routes/AddEvent';
+import LoginP from './routes/LoginP';
+import Register from './routes/Register';
+import { UserProvider } from './contexts/UserContext';
+import { EventProvider } from './contexts/EventContext';
 
 function App() {
 
@@ -20,18 +24,26 @@ function App() {
     });
   });
 
+
+
   return (
-    <div className='bg-[#1B1C1E] min-h-screen font-DM_Sans overflow-hidden'>
-      <Router>
-        <NavBar onTop={onTop} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/addevent" element={<AddEvent />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </div>
+    <UserProvider>
+      <EventProvider>
+        <div className='bg-[#1B1C1E] min-h-screen font-DM_Sans overflow-hidden flex flex-col overflow-y-scroll pr-10 scrollbar-thin scrollbar-thumb-[#424242] scrollbar-track-[#C0C0C0] scrollbar-thumb-rounded-full scrollbar-track-rounded-full'>
+          <Router>
+            <NavBar onTop={onTop} />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/event" element={<Event />} />
+              <Route path="/addevent" element={<AddEvent />} />
+              <Route path="/login" element={< LoginP/>} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </div>
+      </EventProvider>
+    </UserProvider>
   );
 }
 

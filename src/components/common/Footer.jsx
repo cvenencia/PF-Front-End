@@ -3,7 +3,7 @@ import FooterContactanos from './FooterContactanos'
 
 function Footer() {
     return (
-        <div className=' w-screen bg-[#1F1F1F] h-[280px] flex justify-between px-20 items-start pt-5'>
+        <div className=' w-screen bg-[#1F1F1F] h-[280px] flex justify-between px-20 items-start pt-5 mt-auto'>
             <img src="Logo.png" alt="" />
             <div className='flex gap-40'>
                 <div>

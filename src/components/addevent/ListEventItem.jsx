@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ListEventItem({ title, selected, onClick }) {
+function ListEventItem({ title, selected, onClick, index }) {
     return (
         <>
-            <li className='mt-3 hover:cursor-pointer' onClick={onClick}>
+            <li className='mt-3 hover:cursor-pointer' onClick={() => onClick(index)}>
                 <div className={selected ? 'bg-[#4A4A4A] rounded-xl w-[190px] h-[53px] flex items-center justify-center text-center' : ' rounded-xl w-[190px] h-[53px] flex items-center justify-center text-center opacity-70'}>
                     <p className='text-white text-sm'>
                         {title}
