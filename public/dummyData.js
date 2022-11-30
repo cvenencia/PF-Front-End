@@ -28,7 +28,7 @@ if (!usersStorage) {
             id: '52663413-062c-4e40-853f-b857ed0ed22c',
             username: 'vendedor2',
             password: 'def',
-            type: 'buyer',
+            type: 'seller',
         },
     ];
 

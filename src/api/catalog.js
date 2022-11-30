@@ -8,9 +8,6 @@ import { isSeller } from './user';
 import { v4 as uuid } from 'uuid';
 
 let catalog = getLocalStorage('catalog');
-if (!catalog) {
-    updateCatalog([]);
-}
 
 const MAX_PER_PAGE = 5;
 

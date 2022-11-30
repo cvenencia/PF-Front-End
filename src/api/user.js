@@ -1,11 +1,7 @@
 import { getLocalStorage, setLocalStorage } from './util';
 import { v4 as uuid } from 'uuid';
 
-const users = getLocalStorage('users') || [];
-
-if (users.length === 0)
-    setLocalStorage('users', []);
-
+const users = getLocalStorage('users');
 
 export function login(username, password) {
     return users.find(
