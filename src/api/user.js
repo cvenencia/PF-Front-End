@@ -1,9 +1,9 @@
 import { getLocalStorage, setLocalStorage } from './util';
 import { v4 as uuid } from 'uuid';
 
-const users = getLocalStorage('users');
+const users = getLocalStorage('users') || [];
 
-if (!users)
+if (users.length === 0)
     setLocalStorage('users', []);
 
 
