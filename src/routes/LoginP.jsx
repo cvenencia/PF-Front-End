@@ -2,7 +2,7 @@
 import Inputlogin from '../components/login/Inputlogin';
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../api/user';
-import { useState, useContext } from 'react';
+import { useState, useContext, useLayoutEffect } from 'react';
 import { UserContext } from '../contexts/UserContext';
 
 function LoginP() {
@@ -39,6 +39,10 @@ function LoginP() {
       setError(false)
     }
   }
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, []);
 
   return (
     <div className='h-screen flex justify-center items-center '>

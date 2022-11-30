@@ -3,7 +3,7 @@ import InputFirst from '../components/register/InputFirst';
 import InputB from '../components/register/InputB';
 import Checkbox from '../components/login/Checkbox';
 import { register } from '../api/user'
-import { useState } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
 function Register() {
     const [values, setValues] = useState({
@@ -65,10 +65,14 @@ function Register() {
         setCheckboxes({ ...temp, seller: e.target.checked })
     }
 
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
+
     return (
-        <div className='h-screen flex justify-center items-center '>
-            <div className='bg-[#1B1C1E] w-[700px] h-[630px] flex rounded-2xl  px-5  '>
-                <div className='flex flex-col mt-4'>
+        <div className='h-screen flex justify-center items-center'>
+            <div className='bg-transparent w-fit h-fit flex rounded-2xl px-10 items-center pb-10'>
+                <div className='flex flex-col mt-4 w-full items-center'>
                     <h1 className='font-bold text-[50px] text-white mb-2 '>
                         Crea una cuenta
                     </h1>
