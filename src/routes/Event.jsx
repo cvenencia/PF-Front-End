@@ -1,31 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState, useContext } from 'react'
+import { EventContext } from '../contexts/EventContext'
 
 function Event() {
 
-    const [image, setImage] = useState('Prueba3.png')
-    const [title, setTitle] = useState('Imagine Dragons, Mercury World Tour')
+    const { event } = useContext(EventContext)
     const [quantity, setQuantity] = useState(1)
-    const [location, setLocation] = useState('Estadio Movistar Arena-Bogotá, Colombia')
-    const [month, setMonth] = useState('OCT')
-    const [day, setDay] = useState(18)
-    const [year, setYear] = useState(2022)
+
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0)
+    }, []);
 
     return (
-        <div className='my-36 flex justify-center gap-10 rounded-2xl px-10 py-20 '>
-            <div className='rounded-2xl overflow-hidden'>
-                <img src={image} alt="" className='w-[700px]' />
+        <div className=' flex justify-center gap-10 rounded-2xl px-10 py-20 '>
+            <div className='rounded-2xl'>
+                <img src={event.image} alt="" className='w-[700px]' />
             </div>
             <div>
                 <h1 className='text-6xl text-white font-bold w-[30vw]'>
-                    {title}
+                    {event.title}
                 </h1>
                 <p className='text-white'>
-                    {month} {day}, {year}
+                    {event.month} {event.numberDay}, {event.year}
                 </p>
                 <div className='flex items-center'>
                     <img src="Location.png" alt="" />
                     <p className='text-white'>
-                        {location}
+                        {event.location}
                     </p>
                 </div>
                 <div className='mt-10'>

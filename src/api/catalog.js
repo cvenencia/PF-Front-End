@@ -8,6 +8,10 @@ import { isSeller } from './user';
 import { v4 as uuid } from 'uuid';
 
 let catalog = getLocalStorage('catalog');
+if (!catalog) {
+    updateCatalog([]);
+}
+
 const MAX_PER_PAGE = 5;
 
 function updateCatalog(newCatalog) {
@@ -15,11 +19,8 @@ function updateCatalog(newCatalog) {
     setLocalStorage('catalog', catalog);
 }
 
-export function getCatalog(page) {
-    return catalog.slice(
-        page * MAX_PER_PAGE,
-        page * MAX_PER_PAGE + MAX_PER_PAGE
-    );
+export function getCatalog() {
+    return catalog;
 }
 
 export function getEvent(id) {
@@ -38,6 +39,8 @@ export function createEvent(userId, title, date, location, imageURL) {
             message: 'Insufficient data',
         };
     }
+
+    console.log('Creating event', title, date, location, imageURL);
 
     const newEvent = {
         id: uuid(),

@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { EventContext } from '../../contexts/EventContext'
 
-function CatalogCard({ image, month, day, title, ubication }) {
+function CatalogCard({ image, month, day, title, ubication, item }) {
+
+    const { setEvent } = useContext(EventContext)
+
     return (
-        <Link className='w-72 h-72 bg-white rounded-2xl overflow-hidden white_shadow hover:scale-105 transition-all' to={'/event'} >
+        <Link className='w-72 h-72 bg-white rounded-2xl overflow-hidden white_shadow hover:scale-105 transition-all' to={'/event'} onClick={
+            () => {
+                setEvent(item)
+            }
+        }>
             <div className='overflow-hidden h-44'>
                 <img src={image} alt="" className='w-full h-full object-cover' />
             </div>
