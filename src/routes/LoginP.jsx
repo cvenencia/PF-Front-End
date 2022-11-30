@@ -74,12 +74,9 @@ function LoginP() {
 
           <div className='flex flex-col w-full mt-3'>
             <p className="text-white">¿No tienes una cuenta?
-              <Link className='' to={'/register'}>
-                <a className='ml-1 text-[#EF476F] font-semibold hover:text-[#EF476F] hover:none'>
-                  Registrate
-                </a>
+              <Link className='ml-1 text-[#EF476F] font-semibold hover:text-[#EF476F] hover:none' to={'/register'}>
+                Registrate
               </Link>
-
             </p>
           </div>
 

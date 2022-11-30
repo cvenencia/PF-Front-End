@@ -40,8 +40,6 @@ export function createEvent(userId, title, date, location, imageURL) {
         };
     }
 
-    console.log('Creating event', title, date, location, imageURL);
-
     const newEvent = {
         id: uuid(),
         title,

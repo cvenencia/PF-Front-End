@@ -25,7 +25,6 @@ function Register() {
     const [msg, setMsg] = useState('')
 
     const handleRegister = () => {
-        console.log(values);
         if (!values.username || !values.password || !values.confirmpassword || (!checkboxes.seller && !checkboxes.buyer)) {
             setError(true)
             setMsg('Please, fill all fields')
@@ -34,7 +33,6 @@ function Register() {
             setMsg('Passwords don\'t match')
         } else {
             const check = register(values.username, values.password, (checkboxes.buyer ? 'buyer' : 'seller'))
-            console.log(check)
             if (check.ok) {
                 window.location.href = '/login'
             } else {
@@ -48,7 +46,6 @@ function Register() {
     }
 
     const handleCheckboxComprador = (e) => {
-        console.log(e.target.checked)
         const temp = checkboxes
         if (e.target.checked) {
             temp.seller = false;
@@ -57,7 +54,6 @@ function Register() {
     }
 
     const handleCheckboxVendedor = (e) => {
-        console.log(e.target.checked)
         const temp = checkboxes
         if (e.target.checked) {
             temp.buyer = false;
