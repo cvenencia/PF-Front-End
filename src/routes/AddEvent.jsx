@@ -115,7 +115,7 @@ function AddEvent() {
 
     const getDate = (numberDay, month, year) => {
         month = month.toLowerCase();
-        var months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+        var months = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
         month = months.indexOf(month) + 1;
         month = month < 10 ? '0' + month : month;
         return year + "-" + month + "-" + numberDay

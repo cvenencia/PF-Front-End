@@ -3,7 +3,7 @@ import React from 'react'
 function PageSlide({ page, setPage, pages }) {
     return (
         <div className='flex gap-3 self-end'>
-            <button className='w-10 h-10 bg-[#1B1C1E] rounded-full border border-[#8843E1] purple_shadow flex justify-center items-center ' onClick={
+            <button className='w-10 h-10 bg-[#1B1C1E] rounded-full border border-[#8843E1] purple_shadow flex justify-center items-center' onClick={
                 () => {
                     if (page > 1) {
                         setPage(page - 1)
