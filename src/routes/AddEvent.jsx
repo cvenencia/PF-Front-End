@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext, useLayoutEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ListEventItem from '../components/addevent/ListEventItem'
 import InputPurple from '../components/common/InputPurple'
 import { getCatalog, createEvent, updateEvent, deleteEvent } from '../api/catalog'
 import { UserContext } from '../contexts/UserContext'
 import { nameOfMonth, formatDay } from '../api/util'
+import { isSeller } from '../api/user'
 
 function AddEvent() {
 
@@ -18,6 +19,8 @@ function AddEvent() {
     const [ubication, setUbication] = useState('')
     const [date, setDate] = useState('')
     const [image, setImage] = useState('')
+
+    const navigate = useNavigate()
 
     const handleTitle = (e) => {
         setTitle(e.target.value)
@@ -47,8 +50,6 @@ function AddEvent() {
                 let year = date.split('-')[0]
 
                 const dateFormated = new Date(year, month - 1, day)
-
-                console.log(dateFormated)
 
                 createEvent(user.id, title, dateFormated, ubication, image)
                 setCatalog(getCatalog())
@@ -156,6 +157,17 @@ function AddEvent() {
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
     }, []);
+
+    useEffect(() => {
+        if (!user || isSeller(user.id))
+            navigate('/login')
+    }, [])
+
+    useEffect(() => {
+        if (!user || isSeller(user.id)) {
+            navigate('/login')
+        }
+    }, [user])
 
     return (
         <div className='h-screen flex justify-center items-center '>
