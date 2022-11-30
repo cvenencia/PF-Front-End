@@ -14,6 +14,7 @@ function NavBar({ onTop }) {
         // setUser(login('admin', 'admin'))
 
         //entrar como vendedor
+        console.log('entrar como vendedor')
         register('admin', 'admin', 'seller')
         setUser(login('admin', 'admin'))
     }
@@ -26,12 +27,15 @@ function NavBar({ onTop }) {
             </Link>
             {
                 (!user) ? (
+
                     <div className='px-5'>
+                        <Link to={'/login'}>
                         <button className='bg-[#06D6A0] flex justify-center items-center w-[130px] h-[35px] rounded-lg green_shadow hover:bg-[#00C592] active:bg-[#00AF82]' onClick={tempIniciarSeasion}>
                             <p className='text-white font-semibold'>
                                 Iniciar sesión
                             </p>
                         </button>
+                        </Link>
                     </div>
                 ) : (
                     <div className='flex gap-10 px-5'>
