@@ -159,12 +159,12 @@ function AddEvent() {
     }, []);
 
     useEffect(() => {
-        if (!user || isSeller(user.id))
+        if (!user || !isSeller(user.id))
             navigate('/login')
     }, [])
 
     useEffect(() => {
-        if (!user || isSeller(user.id)) {
+        if (!user || !isSeller(user.id)) {
             navigate('/login')
         }
     }, [user])
