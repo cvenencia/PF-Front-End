@@ -1,9 +1,9 @@
 
 import Inputlogin from '../components/login/Inputlogin';
-import Checkbox from '../components/login/Checkbox';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../api/user';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
 
 function LoginP() {
   const [values, setValues] = useState({
@@ -13,19 +13,17 @@ function LoginP() {
 
   const [error, setError] = useState(false)
 
+  const navigate = useNavigate()
+  const { setUser } = useContext(UserContext)
+
   const handleLogin = () => {
     const user = login(values.username, values.password)
-    console.log(user)
-
     if (user) {
-      window.location.href = '/'
+      setUser(user)
+      navigate('/')
     } else {
       setError(true)
-
     }
-
-
-
   }
 
   const handleUsername = (e) => {
@@ -70,7 +68,7 @@ function LoginP() {
 
           {error && <p className='text-red-500'>Usuario o contraseña incorrectos</p>}
 
-          <div className='flex flex-col w-full '>
+          <div className='flex flex-col w-full mt-3'>
             <p className="text-white">¿No tienes una cuenta?
               <Link className='' to={'/register'}>
                 <a className='ml-1 text-[#EF476F] font-semibold hover:text-[#EF476F] hover:none'>

@@ -1,14 +1,30 @@
-import React, { useLayoutEffect, useState, useContext } from 'react'
+import React, { useLayoutEffect, useState, useContext, useEffect } from 'react'
 import { EventContext } from '../contexts/EventContext'
+import { UserContext } from '../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 function Event() {
 
     const { event } = useContext(EventContext)
+    const { user } = useContext(UserContext)
     const [quantity, setQuantity] = useState(1)
+    const navigate = useNavigate()
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
     }, []);
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+    }, [])
+
+    useEffect(() => {
+        if (!user) {
+            navigate('/login')
+        }
+    }, [user])
 
     return (
         <div className=' flex justify-center gap-10 rounded-2xl px-10 py-20 '>

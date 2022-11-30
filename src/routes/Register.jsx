@@ -26,10 +26,10 @@ function Register() {
 
     const handleRegister = () => {
         console.log(values);
-        if (!values.username || !values.password || !values.email || !values.name || !values.lastname || !values.confirmpassword || (!checkboxes.seller && !checkboxes.buyer)) {
+        if (!values.username || !values.password || !values.confirmpassword || (!checkboxes.seller && !checkboxes.buyer)) {
             setError(true)
             setMsg('Please, fill all fields')
-        } else if (values.password !== values.confirmpassword){
+        } else if (values.password !== values.confirmpassword) {
             setError(true)
             setMsg('Passwords don\'t match')
         } else {
@@ -46,7 +46,7 @@ function Register() {
     const handleInput = (field, value) => {
         setValues({ ...values, [field]: value })
     }
-    
+
     const handleCheckboxComprador = (e) => {
         console.log(e.target.checked)
         const temp = checkboxes
@@ -90,28 +90,28 @@ function Register() {
 
                     </div>
                     <InputB
-                        title='Usuario'
+                        title='Email'
                         name={'Email'}
                         placeholder={'name@example.com'}
                         type={'text'}
                         onChange={e => handleInput('email', e.target.value)}
                     />
                     <InputB
-                        title='Contraseña'
-                        name={'Usuario*'}
+                        title='Usuario*'
+                        name={'Usuario'}
                         placeholder={'JaneDoe23'}
                         type={'text'}
                         onChange={e => handleInput('username', e.target.value)}
                     />
                     <InputB
-                        title='Contraseña'
-                        name={'Contraseña*'}
+                        title='Contraseña*'
+                        name={'Contraseña'}
                         placeholder={'*********'}
                         type={'password'}
                         onChange={e => handleInput('password', e.target.value)}
                     />
                     <InputB
-                        title='Confirme contraseña'
+                        title='Confirme contraseña*'
                         name={'Confirme su contraseña'}
                         placeholder={'*********'}
                         type={'password'}
