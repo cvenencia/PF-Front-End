@@ -49,7 +49,7 @@ function LoginP() {
       <div className='bg-[#2C2C2D] w-[510px] h-[505px] flex rounded-2xl  px-5  justify-center '>
         <div className='flex flex-col mt-4'>
           <h1 className='font-bold text-[60px] text-white mb-2  text-center'>
-            Inicia Sesión
+            Inicia sesión
           </h1>
           {/* <div className='flex flex-row justify-center mb-2'>
             <Checkbox name={'Comprador'} />
