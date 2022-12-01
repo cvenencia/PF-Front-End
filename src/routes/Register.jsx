@@ -76,7 +76,12 @@ function Register() {
     return (
         <div className='h-screen flex justify-center items-center'>
             <div className='bg-transparent w-fit h-fit flex rounded-2xl px-10 items-center pb-10'>
-                <div className='flex flex-col mt-4 w-full items-center'>
+                <form className='flex flex-col mt-4 w-full items-center' onSubmit={
+                    (e) => {
+                        e.preventDefault()
+                        handleRegister()
+                    }
+                }>
                     <h1 className='font-bold text-[50px] text-white mb-2 '>
                         Crea una cuenta
                     </h1>
@@ -144,18 +149,14 @@ function Register() {
 
                     </div>
 
+                    {error && <p className='text-red-500'>{msg}</p>}
+
                     <div className='flex flex-col w-full mt-4 items-center'>
                         <button
                             onClick={handleRegister}
                             className='bg-[#06D6A0] green_shadow rounded-lg w-[343px] h-[52.46px] text-white font-bold text-lg'>Registrarse</button>
                     </div>
-
-                    {error && <p className='text-red-500'>{msg}</p>}
-
-
-
-                </div>
-
+                </form>
             </div>
         </div>
     );

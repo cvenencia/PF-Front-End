@@ -51,7 +51,12 @@ function LoginP() {
   return (
     <div className='h-screen flex justify-center items-center '>
       <div className='bg-[#2C2C2D] w-[510px] h-[505px] flex rounded-2xl  px-5  justify-center '>
-        <div className='flex flex-col mt-4'>
+        <form className='flex flex-col mt-4' onSubmit={
+          (e) => {
+            e.preventDefault()
+            handleLogin()
+          }
+        }>
           <h1 className='font-bold text-[60px] text-white mb-2  text-center'>
             Inicia sesión
           </h1>
@@ -87,12 +92,13 @@ function LoginP() {
           <div className='flex flex-col w-full mt-4'>
             <button
               onClick={handleLogin}
+              type='submit'
               className='bg-[#06D6A0] green_shadow rounded-lg w-[343px] h-[52.46px] text-white font-bold text-lg'
             >
               Iniciar Sesión
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   )
