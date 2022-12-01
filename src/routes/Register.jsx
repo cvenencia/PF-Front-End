@@ -1,9 +1,10 @@
-
+import { useState, useLayoutEffect, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import InputFirst from '../components/register/InputFirst';
 import InputB from '../components/register/InputB';
 import Checkbox from '../components/login/Checkbox';
 import { register } from '../api/user'
-import { useState, useLayoutEffect } from 'react';
+import { UserContext } from '../contexts/UserContext';
 
 function Register() {
     const [values, setValues] = useState({
@@ -23,6 +24,9 @@ function Register() {
 
     const [error, setError] = useState(false)
     const [msg, setMsg] = useState('')
+
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const handleRegister = () => {
         if (!values.username || !values.password || !values.confirmpassword || (!checkboxes.seller && !checkboxes.buyer)) {
@@ -64,6 +68,10 @@ function Register() {
     useLayoutEffect(() => {
         window.scrollTo(0, 0)
     }, []);
+
+    useEffect(() => {
+        if (user != null) navigate('/');
+    }, [user]);
 
     return (
         <div className='h-screen flex justify-center items-center'>

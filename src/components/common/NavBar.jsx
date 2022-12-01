@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext'
 
 function NavBar({ onTop }) {
 
-    const { user, setUser } = useContext(UserContext)
+    const { user, logout } = useContext(UserContext)
 
     return (
         <div className={'fixed flex justify-between w-screen px-5 py-2  items-center h-fit z-10 ' + (onTop ? 'bg-transparent' : 'bg-black')}>
@@ -32,11 +32,7 @@ function NavBar({ onTop }) {
                                 </Link>
                             )
                         }
-                        <button onClick={
-                            () => {
-                                setUser(null)
-                            }
-                        }>
+                        <button onClick={logout}>
                             <p className='text-white font-semibold hover:text-[#ff6666] hover:underline'>
                                 Cerrar sesión
                             </p>
