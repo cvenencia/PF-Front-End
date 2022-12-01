@@ -22,7 +22,7 @@ function Catalog() {
 
     const getDate = (numberDay, month, year) => {
         month = month.toLowerCase();
-        var months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+        var months = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
         month = months.indexOf(month) + 1;
         month = month < 10 ? '0' + month : month;
         return year + "-" + month + "-" + numberDay
@@ -31,36 +31,51 @@ function Catalog() {
     useEffect(() => {
         if (searchText !== "") {
             setCatalogFiltered(catalog.filter(event => event.title.toLowerCase().includes(searchText.toLowerCase())))
+            setPages(Math.ceil(catalog.filter(event => event.title.toLowerCase().includes(searchText.toLowerCase())).length / 6))
+            setPage(1)
         } else {
             setCatalogFiltered(getCatalog())
+            setPages(Math.ceil(getCatalog().length / 6))
+            setPage(1)
         }
     }, [searchText])
 
     useEffect(() => {
         if (datePrev !== "" && dateNext !== "") {
-            setCatalogFiltered(catalog.filter(event => {
+            const temp = catalog.filter(event => {
                 let date = new Date(getDate(event.numberDay, event.month, event.year))
                 let datePrevDate = new Date(datePrev)
                 let dateNextDate = new Date(dateNext)
 
                 return date >= datePrevDate && date <= dateNextDate
-            }))
+            })
+            setCatalogFiltered(temp)
+            setPages(Math.ceil(temp.length / 6))
+            setPage(1)
         } else if (datePrev !== "") {
-            setCatalogFiltered(catalog.filter(event => {
+            const temp = catalog.filter(event => {
                 let date = new Date(getDate(event.numberDay, event.month, event.year))
                 let datePrevDate = new Date(datePrev)
 
                 return date >= datePrevDate
-            }))
+            })
+            setCatalogFiltered(temp)
+            setPages(Math.ceil(temp.length / 6))
+            setPage(1)
         } else if (dateNext !== "") {
-            setCatalogFiltered(catalog.filter(event => {
+            const temp = catalog.filter(event => {
                 let date = new Date(getDate(event.numberDay, event.month, event.year))
                 let dateNextDate = new Date(dateNext)
 
                 return date <= dateNextDate
-            }))
+            })
+            setCatalogFiltered(temp)
+            setPages(Math.ceil(temp.length / 6))
+            setPage(1)
         } else {
             setCatalogFiltered(getCatalog())
+            setPages(Math.ceil(getCatalog().length / 6))
+            setPage(1)
         }
     }, [datePrev, dateNext])
 
